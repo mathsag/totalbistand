@@ -4,26 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary SEO -->
   <title>Totalbistand – Skreddersydde bemanningsløsninger</title>
   <meta name="description" content="Totalbistand leverer skreddersydde bemannings- og omsorgstjenester innen bemanning, alternativ skolearena, avlastning, barnevern og helse. Ta kontakt i dag." />
   <meta name="keywords" content="bemanning, bemanningsløsninger, barnevern, avlastning, skolearena, helse, omsorg, institusjon, Norge" />
   <meta name="author" content="Totalbistand" />
   <link rel="canonical" href="https://totalbistand.no/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://totalbistand.no/" />
   <meta property="og:title" content="Totalbistand – Skreddersydde bemanningsløsninger" />
   <meta property="og:description" content="Totalbistand leverer skreddersydde bemannings- og omsorgstjenester innen bemanning, alternativ skolearena, avlastning, barnevern og helse." />
   <meta property="og:locale" content="nb_NO" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Totalbistand – Skreddersydde bemanningsløsninger" />
   <meta name="twitter:description" content="Totalbistand leverer skreddersydde bemannings- og omsorgstjenester innen bemanning, alternativ skolearena, avlastning, barnevern og helse." />
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,14 +27,8 @@
     "email": "mgo@totalbistand.no",
     "telephone": "+4799475001",
     "description": "Totalbistand leverer skreddersydde bemannings- og omsorgstjenester innen bemanning, alternativ skolearena, avlastning, barnevern og helse.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "NO"
-    },
-    "serviceArea": {
-      "@type": "Country",
-      "name": "Norway"
-    },
+    "address": { "@type": "PostalAddress", "addressCountry": "NO" },
+    "serviceArea": { "@type": "Country", "name": "Norway" },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Tjenester",
@@ -520,7 +508,6 @@
     }
     #service-overlay.open { transform: translateX(0); }
 
-    /* Overlay corner - PC: kolonnevis */
     .overlay-corner {
       position: absolute;
       top: 0;
@@ -573,7 +560,10 @@
     }
 
     /* PC: tall over tittel */
-    .overlay-title-row { display: block; margin-bottom: 1.2rem; }
+    .overlay-title-row {
+      display: block;
+      margin-bottom: 1.2rem;
+    }
 
     .overlay-num {
       font-family: 'Cormorant Garamond', serif;
@@ -769,16 +759,33 @@
       .contact-image { display: none; }
       .contact-form-side { padding: 3rem 5%; }
 
-      /* Footer mobil - trekant */
+      /* Footer mobil - diamant */
       footer {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        row-gap: 1.2rem;
-        padding: 1.5rem 5%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 0.8rem;
+        padding: 1.8rem 5%;
+        text-align: center;
       }
-      .footer-logo { grid-column: 1; grid-row: 1; }
-      .footer-contact { grid-column: 2; grid-row: 1; }
-      .footer-copy { grid-column: 1 / -1; grid-row: 2; text-align: center; }
+      .footer-logo {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+      }
+      .footer-contact {
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+      }
+      .footer-copy {
+        grid-column: 1;
+        grid-row: 3;
+        text-align: center;
+      }
 
       /* Overlay mobil: logo venstre, tilbake høyre */
       .overlay-corner {
@@ -800,10 +807,10 @@
         margin-bottom: 1rem;
       }
       .overlay-num {
-        font-size: 0.78rem !important;
+        font-size: 1.1rem !important;
         color: var(--muted);
-        font-weight: 400;
-        letter-spacing: 0.1em;
+        font-weight: 500;
+        letter-spacing: 0.05em;
         margin-bottom: 0;
       }
 
