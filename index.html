@@ -284,21 +284,141 @@
 
     /* FOOTER */
     footer {
-      background: var(--dark); color: rgba(255,255,255,0.4);
+      background: var(--bg); color: var(--muted);
+      border-top: 1px solid var(--text);
       padding: 2.5rem 6%;
       display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
 
     .footer-logo {
-      color: rgba(255,255,255,0.85);
+      color: var(--text);
       font-weight: 500; letter-spacing: 0.18em;
       text-transform: uppercase; font-size: 0.8rem;
     }
 
     footer p { font-size: 0.8rem; }
-    footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: #fff; }
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    /* SERVICE DETAIL OVERLAY */
+    .service-card { cursor: pointer; }
+
+    #service-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: var(--bg);
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.77,0,0.18,1);
+      overflow-y: auto;
+      display: flex; flex-direction: column;
+    }
+    #service-overlay.open { transform: translateX(0); }
+
+    .overlay-corner {
+      position: absolute; top: 0; left: 0; z-index: 20;
+      padding: 1.8rem 6% 0;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+
+    .overlay-corner .logo {
+      font-size: 1rem; color: var(--text); text-decoration: none;
+    }
+
+    .overlay-back {
+      display: flex; align-items: center; gap: 0.45rem;
+      background: none; border: none; cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem; color: var(--muted);
+      transition: color 0.2s; padding: 0; letter-spacing: 0.04em;
+    }
+    .overlay-back:hover { color: var(--accent); }
+    .overlay-back svg { width: 13px; height: 13px; }
+
+    .overlay-hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: stretch; min-height: 60vh;
+    }
+
+    .overlay-hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7rem 6% 4rem;
+    }
+
+    .overlay-hero-text .overlay-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: var(--border);
+      font-weight: 600; line-height: 1; margin-bottom: 1rem;
+    }
+
+    .overlay-hero-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 500; line-height: 1.1;
+      color: var(--dark); margin-bottom: 1.2rem;
+    }
+
+    .overlay-hero-text .lead {
+      font-size: 1rem; color: var(--muted);
+      max-width: 440px; line-height: 1.8; font-weight: 300;
+    }
+
+    .overlay-hero-image {
+      overflow: hidden; position: relative;
+    }
+    .overlay-hero-image img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .overlay-body {
+      padding: 5rem 6%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .overlay-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 500;
+      color: var(--dark); margin-bottom: 1rem;
+    }
+
+    .overlay-body p {
+      color: var(--muted); line-height: 1.85;
+      font-size: 0.95rem; font-weight: 300; margin-bottom: 1rem;
+    }
+
+    .overlay-body ul { list-style: none; padding: 0; }
+    .overlay-body ul li {
+      color: var(--muted); font-size: 0.92rem;
+      font-weight: 300; padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .overlay-body ul li::before {
+      content: ''; display: block; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--accent); flex-shrink: 0;
+    }
+
+    .overlay-cta {
+      padding: 4rem 6%; background: var(--bg2);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap; margin-top: auto;
+    }
+
+    .overlay-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 500; color: var(--dark); max-width: 500px;
+    }
+
+    @media (max-width: 860px) {
+      .overlay-hero, .overlay-body { grid-template-columns: 1fr; }
+      .overlay-hero-image { height: 60vw; min-height: 250px; }
+      .overlay-hero-image img { position: relative; }
+      .overlay-body { gap: 2.5rem; padding: 3rem 5%; }
+      .overlay-hero-text { padding: 6rem 5% 3rem; }
+      .overlay-cta { padding: 3rem 5%; }
+    }
 
     /* REVEAL */
     .reveal {
@@ -362,7 +482,7 @@
 <!-- OM OSS -->
 <section id="om-oss">
   <div class="about-image">
-    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1000&auto=format&fit=crop&q=80" alt="Omsorgspersonell" />
+    <img src="boy-care-young-tenderness-group.jpg" alt="Omsorg og læring" />
   </div>
   <div class="about-text">
     <p class="section-label reveal">Om oss</p>
@@ -435,19 +555,144 @@
     </form>
   </div>
   <div class="contact-image">
-    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&auto=format&fit=crop&q=80" alt="Helsepersonell" />
+    <img src="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=1000&auto=format&fit=crop&q=80" alt="Kontakt oss" />
   </div>
 </section>
+
+<!-- SERVICE DETAIL OVERLAY -->
+<div id="service-overlay" role="dialog" aria-modal="true">
+  <div class="overlay-corner">
+    <a href="#" class="logo">Totalbistand</a>
+    <button class="overlay-back" id="overlayBack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+      Tilbake
+    </button>
+  </div>
+  <div class="overlay-hero">
+    <div class="overlay-hero-text">
+      <div class="overlay-num" id="ol-num"></div>
+      <h2 id="ol-title"></h2>
+      <p class="lead" id="ol-lead"></p>
+    </div>
+    <div class="overlay-hero-image">
+      <img id="ol-img" src="" alt="" />
+    </div>
+  </div>
+  <div class="overlay-body">
+    <div>
+      <h3 id="ol-body-title"></h3>
+      <p id="ol-body-text"></p>
+    </div>
+    <div>
+      <h3>Dette tilbyr vi</h3>
+      <ul id="ol-list"></ul>
+    </div>
+  </div>
+  <div class="overlay-cta">
+    <p>Ønsker du å vite mer eller komme i gang?</p>
+    <a href="#kontakt" class="btn-primary" id="ol-contact">Ta kontakt</a>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">Totalbistand</span>
   <p>© 2025 Totalbistand. Alle rettigheter forbeholdt.</p>
-  <p><a href="/cdn-cgi/l/email-protection#b7c7d8c4c3f7c3d8c3d6dbd5dec4c3d6d9d399d9d8"><span class="__cf_email__" data-cfemail="15657a666155617a617479777c6661747b713b7b7a">[email&#160;protected]</span></a></p>
+  <p><a id="footer-email">mgo@totalbistand.no</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll reveal
+<script>
+  // Footer email
+  const fe = document.getElementById('footer-email');
+  fe.href = 'mailto:' + 'mgo' + '@' + 'totalbistand.no';
+
+  // SERVICE DATA
+  const services = [
+    {
+      num: '01', title: 'Bemanning og rekruttering',
+      lead: 'Vi tilpasser våre bemanningstjenester for å dekke dine unike krav på en effektiv og kvalitetssikret måte.',
+      img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'Skreddersydd bemanning',
+      bodyText: 'Totalbistand har lang erfaring med å matche riktig kompetanse til riktig oppdrag. Vi tar ansvar for hele prosessen – fra kartlegging av behov til oppfølging av personell ute i oppdrag. Vårt nettverk av kvalifiserte fagfolk sikrer at du alltid har tilgang på pålitelig arbeidskraft, også på kort varsel.',
+      list: ['Vikartjenester og fast bemanning', 'Rekruttering og utvelgelse', 'Kompetansekartlegging', 'Oppfølging av personell', 'Fleksible avtaler tilpasset ditt behov']
+    },
+    {
+      num: '02', title: 'Alternativ skolearena',
+      lead: 'Vår skolearena gir tilpasset opplæring og tett oppfølging for elever som trenger et annet læringsmiljø.',
+      img: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'Et trygt sted å lære',
+      bodyText: 'Vi tilbyr et alternativt opplæringstilbud for barn og unge som av ulike årsaker ikke får utbytte av ordinær undervisning. Med små grupper, dedikerte veiledere og tett samarbeid med skole og foresatte skaper vi et miljø der eleven kan trives og utvikle seg.',
+      list: ['Tilpasset opplæring etter læreplanen', 'Små grupper med tett oppfølging', 'Samarbeid med skole og PPT', 'Sosial trening og mestring', 'Overgangsplaner tilbake til ordinær skole']
+    },
+    {
+      num: '03', title: 'Avlastning og støtte',
+      lead: 'Vi leverer individuelle avlastningsløsninger som gir familier nødvendig pusterom og fremmer velvære.',
+      img: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'Støtte når det trengs mest',
+      bodyText: 'Familier som har barn eller voksne med særskilte behov kan trenge tid til å hente seg inn. Vår avlastningstjeneste gir trygg og kvalifisert omsorg, slik at pårørende kan hvile og familien kan fungere godt over tid. Vi tilpasser tilbudet etter den enkeltes situasjon og behov.',
+      list: ['Hjemmebasert avlastning', 'Avlastningsopphold', 'Støttekontakt og fritidsaktiviteter', 'BPA – brukerstyrt personlig assistanse', 'Fleksibel og tilpasset turnus']
+    },
+    {
+      num: '04', title: 'Barnevern',
+      lead: 'Profesjonell støtte og omsorg for barn i sårbare situasjoner, alltid med barnets beste som rettesnor.',
+      img: 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'Trygghet for de mest sårbare',
+      bodyText: 'Totalbistand leverer kvalifisert personell og tjenester til barnevernssektoren. Vi arbeider tett med kommuner, barneverntjenester og institusjoner for å sikre at barn og unge i krevende livssituasjoner får den omsorgen og støtten de trenger.',
+      list: ['Bemanning til barnevernsinstitusjoner', 'Miljøterapeuter og miljøarbeidere', 'Familieveiledning og -støtte', 'Tilsynsoppdrag', 'Ettervern og overgangsstøtte']
+    },
+    {
+      num: '05', title: 'Helse og omsorg',
+      lead: 'Kvalifisert helsepersonell som leverer faglig forsvarlig omsorg med kompetanse og hjerte.',
+      img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'Faglig sterk omsorg',
+      bodyText: 'Vi formidler helsepersonell til kommuner, sykehjem, hjemmetjenester og spesialisthelsetjenesten. Våre ansatte er grundig screenet og har relevant utdanning og erfaring. Vi sørger for at rett kompetanse er på rett sted – slik at pasienter og brukere får den omsorgen de fortjener.',
+      list: ['Sykepleiere og hjelpepleiere', 'Vernepleiere og omsorgsarbeidere', 'Hjemmetjeneste og praktisk bistand', 'Bemanning til sykehjem og bofellesskap', 'Nattevakter og helgevakter']
+    },
+    {
+      num: '06', title: 'Institusjonstjenester',
+      lead: 'Helhetlige bemannings- og driftsløsninger for institusjoner som stiller høye krav til kvalitet og pålitelighet.',
+      img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1000&auto=format&fit=crop&q=80',
+      bodyTitle: 'En stabil partner for institusjonene',
+      bodyText: 'Vi forstår at institusjoner har behov for stabil, forutsigbar og høykvalifisert bemanning gjennom hele året. Totalbistand inngår langsiktige samarbeidsavtaler og sørger for kontinuitet. Vi er en partner du kan stole på – også når det oppstår uforutsette behov.',
+      list: ['Langsiktige bemanningsavtaler', 'Vikarpool og beredskapsvakter', 'Turnusplanlegging og koordinering', 'Opplæring og introduksjon av nytt personell', 'Kvalitetssikring og oppfølging']
+    }
+  ];
+
+  // OVERLAY
+  const overlay = document.getElementById('service-overlay');
+  const backBtn = document.getElementById('overlayBack');
+
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      const s = services[i];
+      document.getElementById('ol-num').textContent = s.num;
+      document.getElementById('ol-title').textContent = s.title;
+      document.getElementById('ol-lead').textContent = s.lead;
+      document.getElementById('ol-img').src = s.img;
+      document.getElementById('ol-img').alt = s.title;
+      document.getElementById('ol-body-title').textContent = s.bodyTitle;
+      document.getElementById('ol-body-text').textContent = s.bodyText;
+      document.getElementById('ol-list').innerHTML = s.list.map(item => `<li>${item}</li>`).join('');
+      overlay.classList.add('open');
+      overlay.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeOverlay() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  backBtn.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+
+  document.getElementById('ol-contact').addEventListener('click', () => {
+    closeOverlay();
+    setTimeout(() => document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' }), 520);
+  });
+
+  // SCROLL REVEAL
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -455,18 +700,17 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Immediate hero reveal on load
   window.addEventListener('load', () => {
     document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
   });
 
-  // Mailto form handler
+  // MAILTO
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const emne    = document.getElementById('emne').value;
     const melding = document.getElementById('melding').value;
-    const mailto = `mailto:post@totalbistand.no?subject=${encodeURIComponent(emne || 'Henvendelse fra nettsiden')}&body=${encodeURIComponent(melding)}`;
+    const mailto = `mailto:mgo@totalbistand.no?subject=${encodeURIComponent(emne || 'Henvendelse fra nettsiden')}&body=${encodeURIComponent(melding)}`;
     window.location.href = mailto;
   });
 </script>
