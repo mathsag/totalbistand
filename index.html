@@ -703,14 +703,3 @@
   window.addEventListener('load', () => {
     document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
   });
-
-  // MAILTO
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emne    = document.getElementById('emne').value;
-    const melding = document.getElementById('melding').value;
-    const mailto = `mailto:mgo@totalbistand.no?subject=${encodeURIComponent(emne || 'Henvendelse fra nettsiden')}&body=${encodeURIComponent(melding)}`;
-    window.location.href = mailto;
-  });
-</script>
