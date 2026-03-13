@@ -20,11 +20,11 @@
     body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
     /* HERO - bilde helt i hjørnet, ingen nav-bar */
-    .hero { display:grid; grid-template-columns:1fr 580px; min-height:480px; }
-    .hero-text { padding:1.4rem 8% 3rem 5%; display:flex; flex-direction:column; justify-content:center; background:var(--bg); position:relative; }
+    .hero { display:grid; grid-template-columns:1fr 680px; min-height:360px; max-height:360px; }
+    .hero-text { padding:0 8% 3rem 5%; display:flex; flex-direction:column; justify-content:flex-start; background:var(--bg); position:relative; }
 
     /* Logo + tilbake overlappende øverst til venstre i hero-text */
-    .top-bar { display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem; margin-bottom:2.5rem; }
+    .top-bar { display:flex; flex-direction:column; align-items:flex-start; gap:0.2rem; margin-bottom:2.5rem; padding-top:1.4rem; padding-left:0; }
     .logo { display:flex; align-items:center; text-decoration:none; }
     .logo img { height:26px; width:auto; display:block; }
     .logo-fb { font-family:'Outfit',sans-serif; font-weight:500; font-size:0.82rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text); display:none; }
