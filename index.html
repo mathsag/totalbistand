@@ -425,6 +425,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Fyll inn emne fra URL-parameter (?emne=...)
+  var urlParams = new URLSearchParams(window.location.search);
+  var emneParam = urlParams.get('emne');
+  if (emneParam) {
+    var emneField = document.getElementById('emne');
+    if (emneField) emneField.value = emneParam;
+    // Scroll til kontakt
+    var kontakt = document.getElementById('kontakt');
+    if (kontakt) setTimeout(function(){ kontakt.scrollIntoView({ behavior: 'smooth' }); }, 300);
+  }
+
   // Kontaktskjema
   var form = document.getElementById('contactForm');
   var okMsg = document.getElementById('formSuccess');
