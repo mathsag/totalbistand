@@ -60,6 +60,22 @@
     html.js-loaded .reveal.d1 { transition-delay:0.1s; }
     html.js-loaded .reveal.d2 { transition-delay:0.2s; }
 
+
+    /* FOOTER */
+    footer { background:var(--bg); border-top:1px solid var(--dark); padding:2rem 5% 1.4rem; display:flex; flex-direction:column; }
+    .footer-main { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:2rem; padding-bottom:1.2rem; }
+    .footer-left { display:flex; flex-direction:column; align-items:flex-start; gap:0.25rem; }
+    .footer-left a { font-size:0.76rem; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+    .footer-left a:hover { color:var(--text); }
+    .footer-logo { display:flex; justify-content:center; align-items:center; }
+    .footer-logo img { height:26px; width:auto; display:block; }
+    .footer-logo .logo-fb { font-family:'Outfit',sans-serif; font-weight:500; font-size:0.82rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text); display:none; }
+    .footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:0.25rem; }
+    .footer-right a { font-size:0.76rem; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+    .footer-right a:hover { color:var(--text); }
+    .footer-mobile-links { display:none; }
+    .footer-copy { font-size:0.72rem; color:var(--muted); text-align:center; padding-top:1rem; }
+
     /* MOBIL */
     @media (max-width: 860px) {
       /* Vis mobil-header, skjul PC top-bar */
@@ -91,20 +107,6 @@
       .footer-copy { text-align:center; }
     }
 
-    /* FOOTER */
-    footer { background:var(--bg); border-top:1px solid var(--dark); padding:2rem 5% 1.4rem; display:flex; flex-direction:column; }
-    .footer-main { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:2rem; padding-bottom:1.2rem; }
-    .footer-left { display:flex; flex-direction:column; align-items:flex-start; gap:0.25rem; }
-    .footer-left a { font-size:0.76rem; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-    .footer-left a:hover { color:var(--text); }
-    .footer-logo { display:flex; justify-content:center; align-items:center; }
-    .footer-logo img { height:26px; width:auto; display:block; }
-    .footer-logo .logo-fb { font-family:'Outfit',sans-serif; font-weight:500; font-size:0.82rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text); display:none; }
-    .footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:0.25rem; }
-    .footer-right a { font-size:0.76rem; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-    .footer-right a:hover { color:var(--text); }
-    .footer-mobile-links { display:none; }
-    .footer-copy { font-size:0.72rem; color:var(--muted); text-align:center; padding-top:1rem; }
   </style>
 </head>
 <body>
