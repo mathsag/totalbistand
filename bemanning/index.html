@@ -28,7 +28,7 @@
     .topbar svg { width:12px; height:12px; flex-shrink:0; }
 
     /* NAV */
-    nav a, nav a:visited, nav a:hover { text-decoration:none; }
+    nav a, nav a:visited, nav a:hover, nav a:active { text-decoration:none !important; border-bottom:none !important; box-shadow:none !important; }
     nav { position:sticky; top:0; z-index:200; background:rgba(237,234,228,0.96); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); height:62px; padding:0 5%; display:flex; align-items:center; justify-content:space-between; }
     .logo { display:flex; align-items:center; text-decoration:none; }
     .logo img { height:26px; width:auto; display:block; margin-top:2px; }
@@ -36,9 +36,9 @@
     .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; padding:0; margin:0; }
     .nav-links li { list-style:none; }
     .nav-links li::marker { display:none; content:""; }
-    .nav-links a { text-decoration:none !important; }
+    .nav-links a, .nav-links a:hover, .nav-links a:visited { text-decoration:none !important; border-bottom:none !important; }
     .nav-links li::before { display:none; }
-    .nav-links a { color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:400; transition:opacity 0.2s; }
+    .nav-links a { color:var(--text); text-decoration:none !important; border-bottom:none !important; font-size:0.85rem; font-weight:400; transition:opacity 0.2s; }
     .nav-links a:hover { opacity:0.45; }
     .nav-cta { background:var(--dark)!important; color:var(--white)!important; padding:0.48rem 1.2rem!important; opacity:1!important; transition:background 0.2s!important; }
     .nav-cta:hover { background:var(--accent)!important; }
@@ -88,7 +88,7 @@
     .body h2 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:500; color:var(--accent); margin-bottom:0.8rem; }
     .body p { color:var(--muted); line-height:1.85; font-size:0.9rem; font-weight:300; margin-bottom:0.85rem; }
     ul { list-style:none; padding:0; }
-    ul li { color:var(--muted); font-size:0.88rem; font-weight:300; padding:0.5rem 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:0.7rem; }
+    .body ul li { color:var(--muted); font-size:0.88rem; font-weight:300; padding:0.5rem 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:0.7rem; }
     .body ul li::before { content:''; display:block; width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; }
 
     /* CTA */
