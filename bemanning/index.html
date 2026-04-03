@@ -44,6 +44,7 @@
     .nav-links li::before { display:none; }
     .nav-links a { color:var(--text); text-decoration:none !important; border-bottom:none !important; font-size:0.85rem; font-weight:400; transition:opacity 0.2s; }
     .nav-links a:hover { opacity:0.45; }
+    .nav-links a.nav-active { color:var(--accent) !important; font-weight:500; opacity:1 !important; }
     .nav-cta { background:var(--dark)!important; color:var(--white)!important; padding:0.48rem 1.2rem!important; opacity:1!important; transition:background 0.2s!important; }
     .nav-cta:hover { background:var(--accent)!important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
@@ -159,7 +160,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="https://totalbistand.no/#om-oss" style="text-decoration:none;">Om oss</a></li>
-    <li><a href="/bemanning/" style="text-decoration:none;">Bemanning</a></li>
+    <li><a href="/bemanning/" style="text-decoration:none;" class="nav-active">Bemanning</a></li>
     <li class="nav-dropdown">
       <a href="https://totalbistand.no/#tjenester" style="text-decoration:none;">Tjenester <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="dropdown-menu">
@@ -188,7 +189,7 @@
   <div class="svc-hero-text">
     <span class="num">01</span>
     <h1>Bemanning og rekruttering</h1>
-    <p class="lead">Bemanningstjenester innen skole, barnehage, institusjoner og helse- og omsorgstjenester.</p>
+    <p class="lead">Skreddersydde bemanningsløsninger for deg.<br>TotalBistand leverer personell og tjenester innen oppvekst-, helse- og omsorgssektoren. Vi bistår skoler, barnehager, barnevern og kommunale tjenester med kvalifiserte medarbeidere og fleksible løsninger.</p>
     <div class="divider"></div>
   </div>
   <div class="svc-hero-img">
