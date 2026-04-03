@@ -57,9 +57,10 @@
     .logo { display:flex; align-items:center; text-decoration:none; }
     .logo img { height:26px; width:auto; display:block; margin-top:2px; }
     .logo-fb { font-family:'Outfit',sans-serif; font-weight:500; font-size:0.82rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text); display:none; }
-    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
-    .nav-links a { color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:400; transition:opacity 0.2s; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; height:100%; }
+    .nav-links a { color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:400; transition:opacity 0.2s; display:flex; align-items:center; height:100%; }
     .nav-links a:hover { opacity:0.45; }
+    .nav-links a.nav-active { color:var(--accent); font-weight:500; }
     .nav-cta { background:var(--dark)!important; color:var(--white)!important; padding:0.48rem 1.2rem!important; opacity:1!important; transition:background 0.2s!important; }
     .nav-cta:hover { background:var(--accent)!important; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
@@ -199,6 +200,16 @@
     .mob-tjenester-links a { font-family:'Outfit',sans-serif; font-size:1rem; color:var(--muted); text-decoration:none; }
     .mob-tjenester-links a:hover { color:var(--accent); }
 
+    /* VAKTTELEFON */
+    #vakttelefon { background:var(--dark); padding:5rem 5%; text-align:center; }
+    .vakttelefon-inner { display:flex; flex-direction:column; align-items:center; gap:1.5rem; max-width:680px; margin:0 auto; }
+    .vakttelefon-label { font-size:0.68rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--accent); font-weight:500; display:flex; align-items:center; gap:0.65rem; }
+    .vakttelefon-label::before, .vakttelefon-label::after { content:''; display:block; width:22px; height:1px; background:var(--accent); }
+    #vakttelefon h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3vw,2.8rem); font-weight:500; color:var(--white); }
+    #vakttelefon p { color:rgba(255,255,255,0.65); font-size:0.9rem; font-weight:300; line-height:1.85; }
+    .vakttelefon-btn { display:inline-flex; align-items:center; gap:0.7rem; padding:1rem 2.5rem; background:var(--accent); color:#fff; text-decoration:none; font-size:0.95rem; font-weight:500; transition:background 0.2s; margin-top:0.5rem; }
+    .vakttelefon-btn:hover { background:#a06340; }
+
     /* SCROLL REVEAL — js-reveal klasse aktiveres av JS, fallback er synlig */
     html.js-loaded .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
     html.js-loaded .reveal.visible { opacity:1; transform:translateY(0); }
@@ -222,6 +233,7 @@
       .section-header { grid-template-columns:1fr; gap:0.8rem; margin-bottom:2rem; }
       .services-grid { grid-template-columns:1fr; }
       .svc-card { padding:2rem 5%; }
+      #vakttelefon { padding:3rem 5%; }
       #kontakt { grid-template-columns:1fr; }
       .contact-map { min-height:280px; }
       .contact-side { padding:3rem 5%; }
@@ -259,10 +271,11 @@
   </a>
   <ul class="nav-links">
     <li><a href="#om-oss">Om oss</a></li>
-    <li><a href="/bemanning/">Bemanning</a></li>
+    <li><a href="/bemanning/" id="nav-bemanning">Bemanning</a></li>
     <li class="nav-dropdown">
       <a href="#tjenester">Tjenester <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="dropdown-menu">
+        <a href="/bemanning/">Bemanning og rekruttering</a>
         <a href="/avlastning/">Avlastning og støtte</a>
         <a href="/skolearena/">Alternativ skolearena</a>
       </div>
@@ -276,6 +289,7 @@
   <a href="/bemanning/" class="mob-link">Bemanning</a>
   <button class="mob-tjenester-toggle" id="mobTjenesterToggle">Tjenester <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
   <div class="mob-tjenester-links" id="mobTjenesterLinks">
+    <a href="/bemanning/" class="mob-link">Bemanning og rekruttering</a>
     <a href="/avlastning/" class="mob-link">Avlastning og støtte</a>
     <a href="/skolearena/" class="mob-link">Alternativ skolearena</a>
   </div>
@@ -291,9 +305,11 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-text">
-    <h1 style="margin-top:-2rem;">Omsorg &amp; <em>Bemanning</em></h1>
+    <h1 style="margin-top:-2rem;"><em>Omsorg</em> &amp; Bemanning</h1>
     <div style="width:40px; height:2px; background:var(--accent); margin:0.8rem auto 1.2rem;"></div>
-    <p>Skreddersydde bemanningsløsninger for deg.<br>TotalBistand leverer personell og tjenester innen oppvekst-, helse- og omsorgssektoren. Vi bistår skoler, barnehager, barnevern og kommunale tjenester med kvalifiserte medarbeidere og fleksible løsninger.</p>
+    <p><strong>TotalBistand – Helhetlige tjenester med barnet i sentrum</strong></p>
+    <p>TotalBistand er en helhetlig leverandør av tjenester innen barnevern, helse og omsorg, samt skole og oppvekst. Vi tilbyr bemanning, avlastning og tilpassede tiltak for barn og unge med ulike behov, inkludert alternativ skolearena for elever med skolevegring. Vår kompetanse omfatter blant annet autismespekterforstyrrelser, atferdsutfordringer og komplekse omsorgsbehov. Gjennom tett samarbeid med kommuner, skoler, familier og andre instanser, skaper vi trygge og stabile rammer rundt barnet.</p>
+    <p>Hos oss står barnet i sentrum. Vi jobber for at hvert barn skal bli sett, hørt og oppleve mestring i et trygt og inkluderende miljø, preget av omsorg, glede og fellesskap. Med bred faglig kompetanse og et sterkt nettverk, leverer TotalBistand fleksible og kvalitetssikrede tjenester tilpasset den enkeltes behov.</p>
     <div class="hero-btns">
       <a href="#kontakt" class="btn btn-dark">Ta kontakt</a>
       <a href="#tjenester" class="btn btn-outline">Se tjenester</a>
@@ -345,6 +361,19 @@
       <p>Helhetlig pedagogisk tilbud for elever som har behov for alternative læringsarenaer. Variert og aktiv undervisning med praktiske og tilpassede læringsformer.</p>
       <div class="svc-arrow">Les mer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
+  </div>
+</section>
+
+<!-- VAKTTELEFON -->
+<section id="vakttelefon" class="reveal">
+  <div class="vakttelefon-inner">
+    <p class="vakttelefon-label">Tilgjengelighet</p>
+    <h2>Døgnåpen vakttelefon</h2>
+    <p>TotalBistand tilbyr døgnåpen vakttelefon i tilknytning til våre tjenester innen barnevern, helse- og omsorgstjenester samt bemanningstjenester. Vi er tilgjengelige 24/7 for å sikre rask oppfølging, koordinering og håndtering av situasjoner som oppstår.</p>
+    <a href="tel:+4799475001" class="vakttelefon-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      (+47) 994 75 001
+    </a>
   </div>
 </section>
 
